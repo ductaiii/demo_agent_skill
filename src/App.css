@@ -1,8 +1,46 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  background: #f6f3ef;
+  color: #1f2937;
+  font-family:
+    'Space Grotesk',
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    sans-serif;
+}
+
+.title-font {
+  font-family: 'Playfair Display', 'Times New Roman', serif;
+  letter-spacing: 0.02em;
+}
+
+.dashboard-bg {
+  background:
+    radial-gradient(
+      800px 420px at 10% -10%,
+      rgba(250, 178, 83, 0.35),
+      transparent 60%
+    ),
+    radial-gradient(
+      700px 360px at 110% 0%,
+      rgba(59, 130, 246, 0.25),
+      transparent 55%
+    ),
+    linear-gradient(180deg, #fdf7f1 0%, #f5f2ee 50%, #eef2f8 100%);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(10px);
 }
 
 .logo {
