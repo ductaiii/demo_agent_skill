@@ -10,6 +10,7 @@ export default function Dashboard() {
       setLoading(true)
 
       try {
+        console.time('thời gian fetch')
         // 1. Lấy giá Bitcoin & ETH (Mất khoảng ~0.5s)
         const cryptoRes = await fetch(
           '/api/crypto/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1',
@@ -23,6 +24,7 @@ export default function Dashboard() {
         // 3. Lấy thông tin User từ DummyJSON
         const userRes = await fetch(`https://dummyjson.com/users/1`)
         const userData = await userRes.json()
+        console.timeEnd('thời gian fetch')
 
         // Cập nhật State sau khi CHỜ cả 3 thằng xong
         const normalizedCrypto = Array.isArray(cryptoData)
