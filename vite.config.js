@@ -22,5 +22,8 @@ export default defineConfig({
         rewrite: () => '/api/',
       },
     },
+    watch: {
+      usePolling: true,
+    },
   },
 })

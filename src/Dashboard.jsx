@@ -6,25 +6,25 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    const label = `thời gian fetch - ${Date.now()}`;
     async function fetchDataSlowly() {
       setLoading(true)
 
       try {
-        console.time('thời gian fetch')
-        // 1. Lấy giá Bitcoin & ETH (Mất khoảng ~0.5s)
-        const cryptoRes = await fetch(
-          '/api/crypto/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1',
-        )
+        console.time(label)
+
+        const [cryptoRes, forexRes, userRes] = await Promise.all([
+          fetch(
+            '/api/crypto/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1',
+          ),
+          fetch('/api/forex'),
+          fetch(`https://dummyjson.com/users/1`),
+        ])
+
+        console.timeEnd(label)
         const cryptoData = await cryptoRes.json()
-
-        // 2. Lấy tỷ giá ngoại tệ (Mất khoảng ~0.5s)
-        const forexRes = await fetch('/api/forex')
         const forexData = await forexRes.json()
-
-        // 3. Lấy thông tin User từ DummyJSON
-        const userRes = await fetch(`https://dummyjson.com/users/1`)
         const userData = await userRes.json()
-        console.timeEnd('thời gian fetch')
 
         // Cập nhật State sau khi CHỜ cả 3 thằng xong
         const normalizedCrypto = Array.isArray(cryptoData)
@@ -40,6 +40,7 @@ export default function Dashboard() {
               change24h: coin.price_change_percentage_24h,
             }))
           : []
+
 
         // Map data từ DummyJSON sang format cũ để không phải sửa giao diện
         const mappedUser = userData?.id
