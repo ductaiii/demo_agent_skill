@@ -106,6 +106,39 @@ export default function Dashboard() {
           </div>
         </header>
 
+        {/* Banner quảng cáo */}
+        <section className="relative rounded-2xl overflow-hidden bg-gradient-to-r from-amber-400 via-orange-400 to-pink-500 shadow-lg shadow-orange-200/50">
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute -top-8 -left-8 w-40 h-40 bg-white rounded-full blur-2xl"></div>
+            <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-white rounded-full blur-2xl"></div>
+          </div>
+          <div className="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-4 px-8 py-5">
+            <div className="flex items-center gap-4">
+              <span className="text-3xl select-none">🎯</span>
+              <div>
+                <p className="text-xs font-bold uppercase tracking-widest text-white/80 mb-0.5">
+                  Quảng cáo
+                </p>
+                <h2 className="text-xl font-extrabold text-white leading-tight">
+                  Đầu tư thông minh – Sinh lời vượt trội!
+                </h2>
+                <p className="text-sm text-white/80 font-medium mt-0.5">
+                  Khám phá cơ hội đầu tư crypto hàng đầu ngay hôm nay.
+                </p>
+              </div>
+            </div>
+            <button
+              type="button"
+              className="shrink-0 inline-flex items-center gap-2 bg-white text-orange-500 font-bold text-sm px-5 py-2.5 rounded-full shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-200"
+            >
+              Tìm hiểu ngay
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
+            </button>
+          </div>
+        </section>
+
         {/* Section 1: Crypto MARQUEE (Clean & Small Icons) */}
         <section className="relative -mx-6 md:-mx-8 py-8 bg-white border-y border-slate-100 shadow-sm overflow-hidden">
           {/* Marquee Container */}
